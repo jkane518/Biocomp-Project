@@ -1,0 +1,11 @@
+#John Kane and Emily Selland
+#for the BioComputing Project, we decided a that a good place for this grad student to start in terms of further investigation into these proteomes which are resistant to pH,
+#would be to choose the proteomes with >0 (presence of) mcrA genes and >8 hsp70 genes, because we saw a clustering of 8 copies of hsp70 and then a large jump in copy number afer
+
+#list below:
+#proteome number, mcrA gene number, hsp70 gene number
+
+#we suggest the grad student uses proteome 5, proteome 24, proteome 7, proteome 3, proteome 42, proteome 45, proteome 50, and proteome 23 for further investigation 
+#cheers
+
+

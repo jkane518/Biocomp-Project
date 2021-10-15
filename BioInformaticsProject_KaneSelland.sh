@@ -1,5 +1,8 @@
 #Emily Selland and John Kane
 #the goal of this project is to generate a list of the organisms that can make methane and are resistant to pH from a proteome of 50 organisms
+#we organized our directory to that we didn't have to use relative paths. This means moving hmmbuild, hmmsearch, and muscle all to the working directory
+#we also moved the reference sequences for each gene into their own directories, and put those in our working directory
+#same with the proteome directory (moved into our working directory)
 
 #first step: we have reference sequences for the mcrA genes responsible for methane production and the HSP genes associated with pH resistance
 #there are 15 sequences of each mcrA and hsp genes, so we want to make an hmm profile for each with aligned sequences so that we can search our proteome 
@@ -11,7 +14,7 @@
 #usage: cat gene1files >> gene1_all
 #perform this for all genes that you will utilize to search from the proteome and then move the all files into one work space, where you also have
 #muscle and hmmer, so that the need for too many paths is eliminated
-
+#-------------------------------------------------------------------------------------------------------- script starts here, explanation above
 #Script Usage: bash BioInformaticsProject_KaneSelland.sh referencegene1 referencegene2 proteomedirectory
 #for the project: bash BioInformaticsProject_KaneSelland.sh mcrAgene_all hsp70gene_all proteomes
 
@@ -47,3 +50,9 @@ cat GenesCounts_Proteomes.txt | tr "\n" "," | sed -E 's/,[p]{1}/\np/g' | sort -t
 #from this table, you can look at the bottom most results and find the proteomes which have presence and high numbers of the two genes desired
 #for the BioComputing Project, we decided a that a good place for this grad student to start in terms of further investigation into these proteomes which are resistant to pH,
 #would be to choose the proteomes with >0 (presence of) mcrA genes and >8 hsp70 genes, because we saw a clustering of 8 copies of hsp70 and then a large jump in copy number after
+
+#to do this we used the code below to move all proteomes with more than 8 hsp70 copies (we looked at the table to determine what number we would move)
+#this file can be looked at by using nano Candidate_pH_resistant_Proteomes.txt to see our final results
+
+cat GenesCounts_Table.txt | tail -n 8 >> Candidate_pH_resistant_Proteomes.txt
+
